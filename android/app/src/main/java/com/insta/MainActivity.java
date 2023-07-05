@@ -1,10 +1,9 @@
-package com.insta;
+package com.rndiffapp;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactActivityDelegate;
-import android.os.Bundle;
 
 public class MainActivity extends ReactActivity {
 
@@ -14,15 +13,8 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "Insta";
+    return "RnDiffApp";
   }
-  
-  // ...
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(null);
-  }
-  // ...
 
   /**
    * Returns the instance of the {@link ReactActivityDelegate}. Here we use a util class {@link
@@ -35,9 +27,6 @@ public class MainActivity extends ReactActivity {
         this,
         getMainComponentName(),
         // If you opted-in for the New Architecture, we enable the Fabric Renderer.
-        DefaultNewArchitectureEntryPoint.getFabricEnabled(), // fabricEnabled
-        // If you opted-in for the New Architecture, we enable Concurrent React (i.e. React 18).
-        DefaultNewArchitectureEntryPoint.getConcurrentReactEnabled() // concurrentRootEnabled
-        );
+        DefaultNewArchitectureEntryPoint.getFabricEnabled());
   }
 }

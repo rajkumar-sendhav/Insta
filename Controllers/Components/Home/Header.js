@@ -1,10 +1,20 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
+import { firebase } from '../../firebase'
 
-const Header = () => {
+const handleSignout = async () => {
+  try {
+    await firebase.auth().signOut()
+    console.log('Signed out successfully!')
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const Header = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity>
+        <TouchableOpacity onPress={handleSignout} >
         <Image
           style={styles.tinyLogo}
           source={{
@@ -14,20 +24,20 @@ const Header = () => {
       </TouchableOpacity>
 
       <View style={styles.iconsContainer}>
-        <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.push('NewPostScreen')}>
           <Image
             style={styles.icon}
             source={{
-            uri: 'https://cdn-icons-png.flaticon.com/512/3161/3161837.png',
-          }}
+              uri: 'https://cdn-icons-png.flaticon.com/512/3161/3161837.png',
+            }}
           />
         </TouchableOpacity>
         <TouchableOpacity>
           <Image
             style={styles.icon}
             source={{
-            uri: 'https://cdn-icons-png.flaticon.com/512/711/711349.png',
-          }}
+              uri: 'https://cdn-icons-png.flaticon.com/512/711/711349.png',
+            }}
           />
         </TouchableOpacity>
         <TouchableOpacity>
@@ -37,8 +47,8 @@ const Header = () => {
           <Image
             style={styles.icon}
             source={{
-            uri: 'https://cdn-icons-png.flaticon.com/512/5948/5948514.png',
-          }}
+              uri: 'https://cdn-icons-png.flaticon.com/512/5948/5948514.png',
+            }}
           />
         </TouchableOpacity>
       </View>
@@ -75,8 +85,8 @@ const styles = StyleSheet.create({
     width: 25,
     height: 18,
     borderRadius: 25,
-    alignItems: 'center', 
-    justifyContent: 'center', 
+    alignItems: 'center',
+    justifyContent: 'center',
     zIndex: 100,
   }, 
   unreadBadgeText: {

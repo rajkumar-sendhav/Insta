@@ -1,4 +1,4 @@
-import { USERS } from './Users';
+import { USERS } from './users';
 
 export const POSTS = [
   {
